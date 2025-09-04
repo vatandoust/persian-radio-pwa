@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+  <title>Persian Radio — Dubai UAE</title>
+  <meta name="description" content="Persian Radio — Dubai UAE | 24/7 Stream">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Persian Radio">
+
+  <link rel="preload" href="assets/icon-512.png" as="image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrapper">
+    <header class="brand">
+      <img src="assets/icon-192.png" alt="Persian Radio" class="brand-logo"/>
+      <div class="brand-text">
+        <h1>Persian Radio</h1>
+        <p class="subtitle">DUBAI • UAE</p>
+      </div>
+    </header>
+
+    <section class="card player-card" id="player-card">
+      <img id="cover" class="cover" src="assets/logo.png" alt="Cover"/>
+      <div class="track">
+        <div id="title" class="title">Live Stream</div>
+        <div id="artist" class="artist">Tap Play to start</div>
+      </div>
+
+      <div class="controls">
+        <button id="playBtn" class="btn primary">▶︎ پخش</button>
+        <button id="stopBtn" class="btn">■ توقف</button>
+        <input id="volume" type="range" min="0" max="100" value="80" aria-label="Volume">
+        <span id="volPct">80%</span>
+      </div>
+
+      <div class="mini">
+        <span id="statusDot" class="dot"></span>
+        <span id="statusText">آماده</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>&copy; 2025 Persian Radio — Dubai UAE</small>
+      <button id="installBtn" class="btn tiny">نصب به‌عنوان اپ</button>
+    </footer>
+  </main>
+
+  <audio id="audio" preload="none" crossorigin="anonymous"></audio>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(console.warn);
+      });
+    }
+  </script>
+</body>
+</html>
